@@ -21,7 +21,7 @@ class Repository : JokeRepository {
     private val retrofitClient by lazy { createRetrofitClient() }
 
     override fun getJoke() {
-        val jokeService = retrofitClient.create(JokeService::class.java)
+       val jokeService = retrofitClient.create(JokeService::class.java)
         val callback = jokeService.getRandomJoke()
         callback.enqueue(object : Callback<Joke> {
             override fun onFailure(call: Call<Joke>, t: Throwable) {
@@ -43,17 +43,18 @@ class Repository : JokeRepository {
     override fun getJokeList() {
         val jokeService = retrofitClient.create(JokeService::class.java)
         val callback = jokeService.getListOfJokes()
-        callback.enqueue(object : Callback<List<Joke>>{
-            override fun onFailure(call: Call<List<Joke>>, t: Throwable) {
+        callback.enqueue(object : Callback<JokeAPIResponse>{
+            override fun onFailure(call: Call<JokeAPIResponse>, t: Throwable) {
                 Log.e("repository","Error")
             }
 
             override fun onResponse(
-                call: Call<List<Joke>>,
-                response: Response<List<Joke>>
+                call: Call<JokeAPIResponse>,
+                response: Response<JokeAPIResponse>
             ) {
                 response.body()?.let {
-                    jokeCallback.onJokeListRecieved(it)
+
+                    //jokeCallback.onJokeListRecieved()
                 }
             }
 
