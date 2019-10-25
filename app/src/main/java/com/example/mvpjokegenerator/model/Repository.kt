@@ -6,6 +6,7 @@ import com.example.mvpjokegenerator.`interface`.JokeService
 import com.example.mvpjokegenerator.`interface`.JokeRepository
 import com.google.gson.GsonBuilder
 import okhttp3.*
+import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,7 +55,11 @@ class Repository : JokeRepository {
             ) {
                 response.body()?.let {
 
-                    //jokeCallback.onJokeListRecieved()
+                    val string: String
+                    string = it.toString()
+                    println(string)
+
+                    jokeCallback.onJokeListRecieved(it.jokes)
                 }
             }
 

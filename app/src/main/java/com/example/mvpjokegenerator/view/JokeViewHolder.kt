@@ -12,16 +12,21 @@ class JokeViewHolder (inflater: LayoutInflater, parent: ViewGroup) :
 
     private var tvId: TextView? = null
     private var tvJoke: TextView? = null
-    private var category: TextView? = null
+    private var tvCategory: TextView? = null
 
     init {
         tvId = itemView.findViewById(R.id.tvId)
         tvJoke = itemView.findViewById(R.id.tvJoke)
-        category = itemView.findViewById(R.id.tvCategory)
+        tvCategory = itemView.findViewById(R.id.tvCategory)
     }
 
     fun bind(joke: Joke){
         tvJoke?.text = joke.text
+        tvId?.text = joke.id.toString()
+        tvCategory?.text = joke.categories.toString()
+        if (tvCategory?.text == "[]"){
+            tvCategory?.setText("")
+        }
     }
 
 
