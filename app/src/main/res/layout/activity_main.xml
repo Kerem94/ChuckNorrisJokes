@@ -7,8 +7,8 @@
     tools:context=".view.JokeActivity">
 
     <fragment
-        android:id="@+id/fragment_joke"
-        class="com.example.mvpjokegenerator.view.JokeListFragment"
+        android:id="@+id/fragment_joke_start"
+        class="com.example.mvpjokegenerator.view.JokeMainMenuFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
