@@ -10,7 +10,7 @@ import com.example.mvpjokegenerator.model.Joke
 import com.example.mvpjokegenerator.model.Repository
 
 class Presenter(private val repository: Repository, private val jokeView: JokeView) : JokePresenter,
-    Repository.JokeCallBack, AppCompatActivity() {
+    Repository.JokeCallBack {
 
     companion object FragmentTransaction
 
@@ -36,9 +36,7 @@ class Presenter(private val repository: Repository, private val jokeView: JokeVi
     }
 
     override fun changeFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_joke_start, fragment)
-        transaction.commit()
+
     }
 
 

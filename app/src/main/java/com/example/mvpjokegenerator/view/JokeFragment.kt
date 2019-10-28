@@ -34,7 +34,7 @@ class JokeFragment : Fragment(), JokeView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = Presenter(Repository(), this)
-        nextBtn.setOnClickListener { (presenter?.getJoke()) }
+        nextBtn.setOnClickListener { (presenter.getJoke()) }
     }
 
 

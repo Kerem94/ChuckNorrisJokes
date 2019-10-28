@@ -19,6 +19,7 @@ class JokeMainMenuFragment : Fragment(), JokeView {
     override fun showJokeList(joke: List<Joke>) {
     }
 
+
     private lateinit var presenter: Presenter
 
     override fun onCreateView(
@@ -33,8 +34,12 @@ class JokeMainMenuFragment : Fragment(), JokeView {
         super.onViewCreated(view, savedInstanceState)
 
         presenter = Presenter(Repository(), this)
-
-        btnSingleJoke.setOnClickListener { presenter.changeFragment(fragment) }
+        val fragment = JokeFragment()
+        btnSingleJoke.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
+        }
     }
 
 
